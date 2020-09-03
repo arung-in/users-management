@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth', 'CheckUserStatus'])->group(function () {
 	
 	Route::get('/home', 'HomeController@index')->name('home');
 
