@@ -33,8 +33,11 @@
 					<td>{{user.name}}</td>
 					<td>{{user.email}}</td>
 					<td>{{user.created_at}}</td>
-					<td><a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"></a>
-						<div class="dropdown-menu"><a class="dropdown-item text-primary" href="#" @click="deleteUser(user.id)">Delete User</a></div>
+					<td>
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"></a>
+						<div class="dropdown-menu">
+							<a class="dropdown-item text-primary" href="#" @click="deleteUser(user.id)">Delete User</a>
+						</div>
 					</td>
 				</tr>
 			</tbody>

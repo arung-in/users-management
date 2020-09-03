@@ -83,7 +83,7 @@ class NewusersController extends Controller
                 $user->save();
   
             }
-        
+            
             $password = trim($request->password, " ");            
             if(empty($password) || $password == null) {
                 $password = $user->password; 
@@ -92,13 +92,12 @@ class NewusersController extends Controller
             }
 
             $user->fill([
-            'name' => $request->name,
-            'email' => $request->email,
+            'name' => $request->name, 
             'password' => $password,
             ])->save();
 
             //$user->update($request->all());
-            return redirect()->route('users.index');
+            return redirect()->route('home');
         } 
     }
 

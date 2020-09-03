@@ -19,7 +19,8 @@
                     You are logged in!
                     <hr>
                     <a href="{{ url('users') }}">Users List</a> |
-                    <a href="/profile">Profile Edit</a>
+                    <a href="{{ route('newusers.edit',[Auth::user()->id]) }}">Profile Edit</a>
+                     
                 </div>
             </div>
         </div>

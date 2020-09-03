@@ -10,7 +10,7 @@ class UpdateUsersRequest extends FormRequest
      *
      * @return bool
      */
-    protected $fillable = ['name', 'email', 'img', 'path', 'ext'];
+    protected $fillable = ['name', 'img', 'path', 'ext'];
 
     public function authorize()
     {
@@ -26,7 +26,6 @@ class UpdateUsersRequest extends FormRequest
     {
         return [ 
             'name' => 'required',
-            'email' => 'required|email|unique:users,email,'.$this->route('user'),
         ];
     }
 }
