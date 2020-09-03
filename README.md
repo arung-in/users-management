@@ -22,3 +22,6 @@ Laravel 6.* + vue js users management
 ```php artisan migrate```
 
 ```php artisan serve```
+
+- **Link your storage folder to public**
+```php artisan storage:link```
