@@ -14,8 +14,7 @@ class NewusersController extends Controller
 { 
     public function index()
     { 
-        $users = User::all();
-        return view('users.index', compact('users'));
+       
     }
  
     public function create()
@@ -29,8 +28,7 @@ class NewusersController extends Controller
         $fileName = null;
         $filePath = null;
         $fileExt = null;
-        
-        //$user = User::create($request->all());   
+         
         $user = User::create([
             'name' => $request['name'],
             'email' => $request['email'],
@@ -40,8 +38,7 @@ class NewusersController extends Controller
             $file     = $request->image;
             $fileName = $file->getClientOriginalName();
             $filePath = "/uploads/" . date("Y") . '/' . date("m") . "/" . $fileName;
-            $fileName = $file->store($filePath, ['disk' => 'public']);
-            //$file->storeAs('uploads/'. date("Y") . '/' . date("m") . '/', $fileName, 'uploads');
+            $fileName = $file->store($filePath, ['disk' => 'public']); 
             $fileExt = $file->getClientOriginalExtension();
 
             $user->img = $fileName;
@@ -68,14 +65,12 @@ class NewusersController extends Controller
 
         $user = User::findOrFail($id); 
         if ($user != null) {           
-
-            //$user = User::create($request->all()); 
+ 
             if($request->hasFile('image')){
                 $file     = $request->image;
                 $fileName = $file->getClientOriginalName();
                 $filePath = "/uploads/" . date("Y") . '/' . date("m") . "/" . $fileName;
                 $fileName = $file->store($filePath, ['disk' => 'public']);
-                //$file->storeAs('uploads/'. date("Y") . '/' . date("m") . '/', $fileName, 'uploads');
                 $fileExt = $file->getClientOriginalExtension();
                 $user->img = $fileName;
                 $user->path = $filePath;
@@ -95,8 +90,7 @@ class NewusersController extends Controller
             'name' => $request->name, 
             'password' => $password,
             ])->save();
-
-            //$user->update($request->all());
+ 
             return redirect()->route('home');
         } 
     }
@@ -104,18 +98,13 @@ class NewusersController extends Controller
  
     public function show($id)
     {
-         
-        $user = User::findOrFail($id);
-        return view('users.show', compact('user'));
+          
     }
 
  
     public function destroy($id)
-    { 
-        $user = User::findOrFail($id);
-        $user->delete();
-
-        return redirect()->route('users.index');
+    {  
+        
     }
   
 }

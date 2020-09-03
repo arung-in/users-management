@@ -17,16 +17,16 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::middleware(['auth'])->group(function () {
+	
+	Route::get('/home', 'HomeController@index')->name('home');
 
-Route::group(['middleware' => ['auth']], function() {
 	Route::get('/users', 'UsersController@getUsers');
 	Route::delete('/users/{user}/delete', 'UsersController@deleteUser');
+	Route::post('/users/{user}/change', 'UsersController@updatestatusUser');
 
-	Route::resource('newusers', 'Admin\NewusersController');
+	Route::resource('newusers', 'Admin\NewusersController'); 
 
-	// Route::get('/users/create', 'UsersController@createUsers');
-	// Route::post('/users/create', 'UsersController@storeUsers');
 });
 
 

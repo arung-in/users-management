@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-header">Dashboard</div>
 
@@ -20,7 +20,7 @@
                     <hr>
                     <a href="{{ url('users') }}">Users List</a> |
                     <a href="{{ route('newusers.edit',[Auth::user()->id]) }}">Profile Edit</a>
-                     
+
                 </div>
             </div>
         </div>

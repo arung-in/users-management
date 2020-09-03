@@ -16,9 +16,8 @@
 		</div>
 		<table class="table table-bordered table-responsive">
 			<thead>
-				<tr>
-					<th>Profile Image</th>
-					<th v-for="column in columns" :key="column.name" @click="sortBy(column.name)":class="sortKey === column.name ? (sortOrders[column.name] > 0 ? 'sorting_asc' : 'sorting_desc') : 'sorting'" style="width: 40%; cursor:pointer;">
+				<tr> 
+					<th v-for="column in columns" :key="column.name" @click="sortBy(column.name)":class="sortKey === column.name ? (sortOrders[column.name] > 0 ? 'sorting_asc' : 'sorting_desc') : 'sorting'" style="width: 20%; cursor:pointer;">
 						{{column.label}}
 					</th>
 					<th>Actions</th>
@@ -32,6 +31,10 @@
 					</td>
 					<td>{{user.name}}</td>
 					<td>{{user.email}}</td>
+					<td> 
+						<a v-if="user.status == 1" href="#" @click="chageuserStatus(user.id)">Deactivate</a>
+						<a v-else href="#" @click="chageuserStatus(user.id)">Activate</a>
+					</td>
 					<td>{{user.created_at}}</td>
 					<td>
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"></a>
@@ -76,8 +79,10 @@
 			data() {
 				let sortOrders = {};
 				let columns = [
+							{label: 'Profile Image', name: 'img' },
 							{label: 'Name', name: 'name' },
 							{label: 'Email', name: 'email'},
+							{label: 'Status', name: 'status' },
 							{label: 'Date Added', name: 'created_at'},
 							];
 				columns.forEach(
@@ -104,6 +109,19 @@
 				}
 			},
 			methods: {
+				chageuserStatus(id) {
+					axios.post(`/users/${id}/change`)
+					.then(
+						() => {
+							Fire.$emit('reloadUsers')
+							swal('Success!','Status changed','success')}
+					)
+					.catch(
+						() => {
+							swal('Failed', 'There was something wrong', 'warning');
+						}
+					);
+				},
 				deleteUser(id) {
 					axios.delete(`/users/${id}/delete`)
 					.then(

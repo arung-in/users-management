@@ -27,8 +27,7 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('all-users', require('./components/AllUsers.vue').default);
-Vue.component('create-user', require('./components/Register.vue').default);
+Vue.component('all-users', require('./components/AllUsers.vue').default); 
 
 import swal from 'sweetalert2';
 window.swal = swal;

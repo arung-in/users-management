@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-header">Dashboard</div>
 
@@ -20,36 +20,7 @@
                     <hr>
 
                     <all-users></all-users>
-
-                    <!-- <div class="container">
-
-                    <h1>Users List</h1>
-
-                    <table class="table table-bordered data-table">
-
-                        <thead>
-
-                            <tr>
-
-                                <th>No</th>
-
-                                <th>Name</th>
-
-                                <th>Email</th>
-
-                                <th width="100px">Action</th>
-
-                            </tr>
-
-                        </thead>
-
-                        <tbody>
-
-                        </tbody>
-
-                    </table>
-
-                </div> -->
+ 
                 </div>
             </div>
         </div>
