@@ -1967,6 +1967,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   created: function created() {
     var _this = this;
@@ -41096,6 +41101,8 @@ var render = function() {
         _c(
           "tr",
           [
+            _c("th", [_vm._v("Profile Image")]),
+            _vm._v(" "),
             _vm._l(_vm.columns, function(column) {
               return _c(
                 "th",
@@ -41128,6 +41135,13 @@ var render = function() {
         "tbody",
         _vm._l(_vm.paginatedUsers, function(user) {
           return _c("tr", { key: user.id }, [
+            _c("td", [
+              _c("img", {
+                staticStyle: { width: "auto", height: "30px" },
+                attrs: { src: "storage/" + user.img, alt: "No Img" }
+              })
+            ]),
+            _vm._v(" "),
             _c("td", [_vm._v(_vm._s(user.name))]),
             _vm._v(" "),
             _c("td", [_vm._v(_vm._s(user.email))]),
@@ -41498,6 +41512,8 @@ var render = function() {
           ]
         )
       ]),
+      _vm._v(" "),
+      _c("br"),
       _vm._v(" "),
       _c("div", [
         _c(
@@ -53995,8 +54011,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp_pro\htdocs\test\hexa\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp_pro\htdocs\test\hexa\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp_pro\htdocs\live\github-live\users-management\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp_pro\htdocs\live\github-live\users-management\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

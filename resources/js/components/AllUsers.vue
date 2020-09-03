@@ -17,6 +17,7 @@
 		<table class="table table-bordered table-responsive">
 			<thead>
 				<tr>
+					<th>Profile Image</th>
 					<th v-for="column in columns" :key="column.name" @click="sortBy(column.name)":class="sortKey === column.name ? (sortOrders[column.name] > 0 ? 'sorting_asc' : 'sorting_desc') : 'sorting'" style="width: 40%; cursor:pointer;">
 						{{column.label}}
 					</th>
@@ -25,6 +26,10 @@
 			</thead>
 			<tbody>
 				<tr v-for="user in paginatedUsers" :key="user.id">
+					<td>
+						
+						<img style="width: auto; height: 30px;" :src="`storage/` + user.img" alt="No Img">
+					</td>
 					<td>{{user.name}}</td>
 					<td>{{user.email}}</td>
 					<td>{{user.created_at}}</td>

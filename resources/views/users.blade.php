@@ -15,7 +15,7 @@
                     @endif
 
                     You are logged in! <br> 
-                    <a href="{{ url('/users/create') }}">Add New</a>  | <a href="{{ url('/home') }}">Back to Home</a> 
+                    <a href="{{ route('newusers.create') }}">Add New</a>  | <a href="{{ url('/home') }}">Back to Home</a> 
 
                     <hr>
 

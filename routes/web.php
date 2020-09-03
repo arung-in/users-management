@@ -23,8 +23,10 @@ Route::group(['middleware' => ['auth']], function() {
 	Route::get('/users', 'UsersController@getUsers');
 	Route::delete('/users/{user}/delete', 'UsersController@deleteUser');
 
-	Route::get('/users/create', 'UsersController@createUsers');
-	Route::post('/users/create', 'UsersController@storeUsers');
+	Route::resource('newusers', 'Admin\NewusersController');
+
+	// Route::get('/users/create', 'UsersController@createUsers');
+	// Route::post('/users/create', 'UsersController@storeUsers');
 });
 
 

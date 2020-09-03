@@ -20,7 +20,7 @@ class UsersController extends Controller
             return User::orderBy('created_at', 'desc')->get();
         }
         
-        $columns = ['name', 'email', 'created_at'];
+        $columns = ['image', 'name', 'email', 'created_at'];
         $length = $request->input('length');
         $column = $request->input('column');
         $search_input = $request->input('search');
@@ -28,7 +28,7 @@ class UsersController extends Controller
         // $query = User::select('name', 'email', 'created_at')
         //                 ->orderBy($columns[$column]);
         
-        $query = User::select('name', 'email', 'created_at');
+        $query = User::select('name', 'email', 'img', 'created_at');
 
         if ($search_input) {
             $query->where(function($query) use ($search_input) {
@@ -54,13 +54,14 @@ class UsersController extends Controller
         return 'user deleted';
     }
 
-    public function storeUsers(array $data) {
+    public function storeUsers(Request $request) {
         
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-        ]);
+        dd("hi");
+        // return User::create([
+        //     'name' => $data['name'],
+        //     'email' => $data['email'],
+        //     'password' => Hash::make($data['password']),
+        // ]);
         return view('users');
     }
 }

@@ -29,7 +29,7 @@
                     <option value=0>No</option>
                 </select>
             </div>
-
+            <br>
             <div>
                 <button type="submit" @click="handleSubmit">
                     Register
